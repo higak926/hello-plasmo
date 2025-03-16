@@ -1,4 +1,3 @@
-import { CountButton } from "~features/count-button"
 import { Search } from "~features/search"
 import { Todo } from "~features/todo"
 
