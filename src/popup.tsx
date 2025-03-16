@@ -1,9 +1,22 @@
+import { sendToBackground } from "@plasmohq/messaging"
+
 import { Search } from "~features/search"
 import { Todo } from "~features/todo"
 
 import "~style.css"
 
 function IndexPopup() {
+  const resp = async () => {
+    await sendToBackground({
+      name: "timer",
+      body: {
+        type: "popup",
+        action: "add"
+      }
+    })
+  }
+  resp()
+
   return (
     <div className="w-[230px] p-4">
       <h2 className="w-full mb-2">
