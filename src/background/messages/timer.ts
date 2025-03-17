@@ -17,17 +17,20 @@ const handler: PlasmoMessaging.MessageHandler = async (req, res) => {
     plasmoDocTime++
     return
   }
+  if (body?.action === "reset") {
+    popupTime = 0
+    plasmoTopTime = 0
+    plasmoDocTime = 0
+    return
+  }
 
   const message = {
     popupTime: popupTime,
     plasmoTopTime: plasmoTopTime,
     plasmoDocTime: plasmoDocTime
   }
-  console.log(message)
 
-  res.send({
-    message
-  })
+  res.send(message)
 }
 
 export default handler

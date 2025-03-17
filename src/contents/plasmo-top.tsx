@@ -2,6 +2,8 @@ import cssText from "data-text:~style.css"
 import type { PlasmoCSConfig } from "plasmo"
 import { useCallback, useEffect, useRef, useState } from "react"
 
+import { sendToBackground } from "@plasmohq/messaging"
+
 import "~style.css"
 
 export const config: PlasmoCSConfig = {
@@ -29,6 +31,13 @@ export const getStyle = (): HTMLStyleElement => {
 const PlasmoOverlay = () => {
   const [count, setCount] = useState<number>(3)
   const callback = useCallback(() => {
+    sendToBackground({
+      name: "timer",
+      body: {
+        type: "plasmoTop",
+        action: "add"
+      }
+    })
     if (!count) {
       window.location.href = "https://docs.plasmo.com/"
       return
