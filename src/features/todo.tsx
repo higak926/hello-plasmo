@@ -15,6 +15,7 @@ export const Todo = () => {
   useEffect(() => {
     const init = async () => {
       const todo = (await storage.get(todoStorageKey)) as TodoItem[]
+      if (!todo) return
       setTodoList(todo)
     }
     init()
