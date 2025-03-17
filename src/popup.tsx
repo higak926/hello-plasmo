@@ -35,7 +35,7 @@ const timer = () => {
 function IndexPopup() {
   timer()
   return (
-    <div className="w-[230px] p-4">
+    <div className="w-[300px] p-4">
       <h2 className="w-full mb-2">
         <div className="text-center text-lg italic text-slate-500">
           Hello Plasmo

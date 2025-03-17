@@ -35,12 +35,12 @@ export const Todo = () => {
       title: inputTodo,
       done: false
     }
-    await storage.set(todoStorageKey, todoList)
+    await storage.set(todoStorageKey, [...todoList, props])
     setTodoList([...todoList, props])
   }
 
   // やること追加
-  const doneTodo = async (e, id) => {
+  const doneTodo = async (e, id: number) => {
     e.preventDefault()
     const updateList = todoList.map((todo) => {
       if (todo.id === id) {
@@ -68,7 +68,7 @@ export const Todo = () => {
       <h3 className="mt-2 font-bold">やることリスト</h3>
       <div className="flex gap-2 my-1">
         <input
-          className="pl-2 border border-slate-200 rounded-md"
+          className="pl-2 border border-slate-200 rounded-md w-full"
           placeholder="Type here..."
           type="text"
           value={inputTodo}
