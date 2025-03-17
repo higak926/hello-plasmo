@@ -65,7 +65,7 @@ export const Todo = () => {
 
   return (
     <>
-      <h3 className="mt-2 font-bold">やることリスト{inputTodo}</h3>
+      <h3 className="mt-2 font-bold">やることリスト</h3>
       <div className="flex gap-2 my-1">
         <input
           className="pl-2 border border-slate-200 rounded-md"
